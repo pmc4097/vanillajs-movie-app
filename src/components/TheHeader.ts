@@ -1,6 +1,14 @@
 import { Component } from "../core/heropy";
 
+interface State{
+  [key: string]: unknown;
+  menus: {
+    name: string;
+    href: string;
+  }[];
+}
 export default class TheHeader extends Component {
+  public state!: State  //명확한 할 단언
   constructor() {
     super({
       tagName: "header",
@@ -27,12 +35,12 @@ export default class TheHeader extends Component {
                     const href = item.href.split("?")[0];
                     const isActive = hash === href;
                     return /*html */ `
-                        <li>
-                            <a href="${item.href}" class="${isActive ? "active" : ""}">
-                                ${item.name}
-                            </a>
-                        </li>
-                      `;
+                          <li>
+                              <a href="${item.href}" class="${isActive ? "active" : ""}">
+                                  ${item.name}
+                              </a>
+                          </li>
+                        `;
                   })
                   .join("")}
             </ul>    
