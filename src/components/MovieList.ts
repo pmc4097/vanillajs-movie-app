@@ -28,16 +28,20 @@ export default class MovieList extends Component {
     );
 
     const loaderEl = this.el.querySelector(".the-loader");
-    movieStore.state.loading
-      ? loaderEl.classList.remove("hide")
-      : loaderEl.classList.add("hide");
+    if (loaderEl) {
+      movieStore.state.loading
+        ? loaderEl.classList.remove("hide")
+        : loaderEl.classList.add("hide");
+    }
   }
 
   loader() {
     console.log("loading...");
     const loaderEl = this.el.querySelector(".the-loader");
-    movieStore.state.loading
-      ? loaderEl.classList.remove("hide")
-      : loaderEl.classList.add("hide");
+    if (loaderEl) {
+      movieStore.state.loading
+        ? loaderEl.classList.remove("hide")
+        : loaderEl.classList.add("hide");
+    }
   }
 }

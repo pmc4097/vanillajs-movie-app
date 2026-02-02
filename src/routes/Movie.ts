@@ -2,7 +2,6 @@ import { Component } from "../core/heropy";
 import movieStore, { getMovieDetails } from "../store/movie";
 
 export default class Movie extends Component {
-  //   constructor(props) {}
   async render() {
     this.el.classList.add("container", "the-movie");
 
@@ -29,12 +28,12 @@ export default class Movie extends Component {
                 &nbsp;/&nbsp;
                 <span>${movie.Runtime}</span>
                 &nbsp;/&nbsp;
-                <span>${movie.Contry}</span>
+                <span>${movie.Country}</span>
             </div>
             <div class="plot">${movie.Plot}</div>
             <div>
                 <h3>RAtings</h3>
-                <p>${movie.Ratings.map((r) => `<p>${r.Source} - ${r.Value}</p>`).join("")}</p>
+                <p>${Array.isArray(movie.Ratings) ? movie.Ratings.map((r) => `<p>${r.Source} - ${r.Value}</p>`).join("") : ""}</p>
                 <h3>Actors</h3>
                 <p>${movie.Actors}</p>
                 <h3>Director</h3>
